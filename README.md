@@ -1,4 +1,4 @@
-# Rsbuild project
+# Buscador de temperatura
 
 Busqueda de ciudades por medio de una consulta a una api (OpenWeather)
 
