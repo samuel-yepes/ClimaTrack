@@ -1,10 +1,10 @@
-import Weather from './weather';
+import Clima from './Clima';
 import './Styles/App.css'
 
 const App: React.FC = () => {
   return (
     <div className="App">
-      <Weather/>
+      <Clima/>
     </div>
   );
 };

@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 interface DatosClima {
-  main: {temperatura: number; 
-    humedada: number;
+  main: {temp: number; 
+    humidity: number;
   };
 
-  DTclima: Array<{descripcion: string; icono: string;}>;
+  weather: Array<{descripcion: string; icon: string;}>;
 
   name: string;
 }
@@ -21,11 +21,11 @@ const Weather: React.FC = () => {
     if (!ciudad) return;
     setError('');
     try {
-      const response = await axios.get<DatosClima>(`https://api.openweathermap.org/data/2.5/weather`, {
+      const response = await axios.get<DatosClima>(`https://api.openweathermap.org/data/2.5/weather?id=ciudad&appid=67d78960913ba9f2f8a2e093105e564a`, {
         params: {
-          c: ciudad,
-          ap: api,
-          uni: 'metric', //grados
+          q: ciudad,
+          appid: api,
+          units: 'metric', //grados
         },
       });
       setTiempo(response.data);
@@ -50,11 +50,11 @@ const Weather: React.FC = () => {
       {clima && (
         <div className='container-text'>
           <h2>{clima.name}</h2>
-          <p>Temperatura: {clima.main.temperatura} °C</p>
-          <p>Descripción: {clima.DTclima[0].descripcion}</p>
-          <p>Humedad: {clima.main.humedada}%</p>
-          <img src={`http://openweathermap.org/img/wn/${clima.DTclima[0].icono}.png`}
-            alt={clima.DTclima[0].descripcion}
+          <p>Temperatura: {clima.main.temp} °C</p>
+          <p>Descripción: {clima.weather[0].descripcion}</p>
+          <p>Humedad: {clima.main.humidity}%</p>
+          <img src={`http://openweathermap.org/img/wn/${clima.weather[0].icon}.png`}
+            alt={clima.weather[0].descripcion}
           />
         </div>
       )}

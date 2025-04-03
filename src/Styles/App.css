@@ -5,25 +5,39 @@ body {
   height: 100vh;
   background: linear-gradient(135deg, #74ebd5, #acb6e5);
   font-family: 'Times New Roman', Times, serif;
+
 }
 
 .container {
   max-width: 400px;
   padding: 20px;
-  background: #ffffff;
+  background: #3b3b3b;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   border-radius: 15px;
   text-align: center;
+  border: 3px solid #aab3bd;
+  position: relative;
+}
+
+.container::before {
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border-radius: 20px;
+  z-index: -1;
+  background: linear-gradient(135deg, #007bff, #00d4ff);
+
 }
 
 h1 {
   font-size: 24px;
-  color: #333;
+  color: #f8f8f8;
   margin-bottom: 20px;
 }
 
 input {
-  width: 100%;
   padding: 12px;
   margin-bottom: 15px;
   border: 1px solid #ccc;
@@ -47,11 +61,12 @@ button {
   border-radius: 8px;
   font-size: 16px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
   background: #0056b3;
+  transform: scale(1.05);
 }
 
 .error {
@@ -60,6 +75,8 @@ button:hover {
   font-weight: bold;
 }
 
-.container-text{
-  
+.container-text {
+  font-size: 18px;
+  color: #f8f8f8;
+
 }
